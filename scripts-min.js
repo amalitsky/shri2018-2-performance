@@ -272,7 +272,3 @@ selectOptions.forEach(o => {
     selectButtonText.innerText = e.target.innerText;
   });
 });
-
-document.querySelector('.menu__icon').addEventListener('click', function() {
-  document.querySelector('.menu').classList.toggle('menu_open');
-});

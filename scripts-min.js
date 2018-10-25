@@ -180,9 +180,9 @@ document.querySelectorAll('.modal__filter-item_temp').forEach(l => {
   l.onclick = function() {
     document.querySelector('.adjust-bar_theme_temp').value = TEMPS[this.id];
     document.querySelector(
-        '.modal_temp .modal__value').innerHTML = TEMPS[this.id] > 0 ?
-        '+' + TEMPS[this.id] :
-        TEMPS[this.id];
+      '.modal_temp .modal__value').innerHTML = TEMPS[this.id] > 0 ?
+      '+' + TEMPS[this.id] :
+      TEMPS[this.id];
   };
 });
 
@@ -210,9 +210,9 @@ document.querySelectorAll('.panel_floor').forEach(p => {
 });
 
 const arrowLeftScens = document.querySelector(
-    '.scenarios__paginator .paginator__arrow_left');
+  '.scenarios__paginator .paginator__arrow_left');
 const arrowRightScens = document.querySelector(
-    '.scenarios__paginator .paginator__arrow_right');
+  '.scenarios__paginator .paginator__arrow_right');
 const panelCountScens = document.querySelectorAll('.scenarios__panel').length;
 const pageCountScens = document.querySelectorAll('.scenarios__page').length;
 const scenarios = document.querySelector('.scenarios');
@@ -225,9 +225,9 @@ arrowRightScens.addEventListener('click', function() {
   if (currentPage < pageCountScens) {
     currentPage += 1;
     arrowRightScens.classList.toggle('paginator__arrow_disabled',
-        currentPage === pageCountScens);
+      currentPage === pageCountScens);
     arrowLeftScens.classList.toggle('paginator__arrow_disabled',
-        currentPage === 1);
+      currentPage === 1);
     scenarios.scroll({
       top: 0,
       left: 645,

@@ -4,9 +4,8 @@ var deploy      = require('gulp-gh-pages');
 /** Push build to gh-pages */
 gulp.task('deploy', function () {
   return gulp.src([
-      '*',
-      'assets/*',
-      'fonts/*'
+      '**/*',
+      '!node_modules'
   ])
   .pipe(deploy())
 });

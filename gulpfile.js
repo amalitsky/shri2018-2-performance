@@ -5,7 +5,7 @@ var deploy      = require('gulp-gh-pages');
 gulp.task('deploy', function () {
   return gulp.src([
       '**/*',
-      '!node_modules',
+      '!node_modules'
   ])
   .pipe(deploy())
 });

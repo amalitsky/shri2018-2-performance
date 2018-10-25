@@ -5,11 +5,14 @@
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "gift": "^0.10.2",
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "gulp deploy"
   },
   "repository": {
     "type": "git",

@@ -138,10 +138,6 @@
   display: inline-block;
   margin-right: 11px;
 }
-#root {
-  position: absolute;
-  left: -10000px;
-}
 .devices {
   display: flex;
   justify-content: flex-start;
@@ -160,9 +156,6 @@
   position: absolute;
   top: 0;
   right: 40px;
-}
-.filter__select {
-  display: none;
 }
 .filter__item-label {
   display: inline-block;
@@ -519,9 +512,6 @@ body {
 }
 .panel_first {
   margin-top: 20px;
-}
-.panel_last {
-  margin-bottom: 20px;
 }
 .panel__sub {
   font-size: 12px;

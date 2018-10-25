@@ -471,9 +471,6 @@
 html {
   height: 100%;
 }
-body {
-  margin: 0;
-}
 .page {
   height: 100%;
   font: 14px Arial, sans-serif;
@@ -482,7 +479,6 @@ body {
   margin: 0 auto;
   padding: 0;
   width: 1366px;
-  background-color: #ffffff;
 }
 .page__wrapper {
   display: flex;
@@ -575,6 +571,9 @@ body {
   top: 0;
   right: 40px;
 }
+.scenarios_hide {
+  display: none;
+}
 .weather {
   display: flex;
 }
@@ -618,7 +617,4 @@ body {
 }
 .panel__icon_clock {
   background: url("assets/panel__icon_clock.svg") center center/contain no-repeat;
-}
-.main__greeting {
-  font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

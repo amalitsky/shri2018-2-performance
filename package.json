@@ -1,0 +1,24 @@
+{
+  "name": "shri-hw-perf-web",
+  "version": "1.0.0",
+  "description": "Оптимизируйте страницу, выложите на GitHub Pages. Зайдите на https://shri-performance.ru и отправьте урл своей страницы.",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amalitsky/shri2018-2-performance.git"
+  },
+  "author": "Alex Malitsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amalitsky/shri2018-2-performance/issues"
+  },
+  "homepage": "https://github.com/amalitsky/shri2018-2-performance#readme"
+}

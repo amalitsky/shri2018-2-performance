@@ -5,6 +5,8 @@
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-google": "^0.11.0",
     "gh-pages": "^2.0.1",
     "gift": "^0.10.2",
     "gulp": "^3.9.1",

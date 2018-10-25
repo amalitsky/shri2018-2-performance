@@ -251,14 +251,14 @@
   fill: none;
   stroke: #f5a623;
   stroke-width: 20px;
-  stroke-dasharray: 0 629;
+  stroke-dasharray: 0, 629;
   transform: rotate(29deg);
 }
 .knob__indicator-bounds {
   fill: transparent;
   stroke: #fff;
   stroke-width: 21px;
-  stroke-dasharray: 99 629;
+  stroke-dasharray: 99, 629;
   transform: rotate(-29deg);
 }
 .knob__indicator-bg {
@@ -268,7 +268,7 @@
   fill: transparent;
   stroke: #fff;
   stroke-width: 22px;
-  stroke-dasharray: 4 1;
+  stroke-dasharray: 4, 1;
   transform: rotate(1deg);
 }
 .knob__self {
@@ -303,7 +303,7 @@
   width: 108px;
   height: 27px;
   position: relative;
-  background-image: url("./assets/logo.png");
+  background-image: url("assets/logo.png");
   background-repeat: no-repeat;
   background-position: left top;
   background-size: cover;
@@ -461,7 +461,9 @@
   from {
     transform: scale(0.2);
   }
-to-transform: scale(1);
+  to {
+    transform: scale(1);
+  }
 }
 * {
   box-sizing: border-box;

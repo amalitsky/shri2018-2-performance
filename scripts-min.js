@@ -25,7 +25,7 @@ arrowRightDevs.addEventListener('click', function() {
   devices.scroll({
     top: 0,
     left: 1366,
-    behavior: 'smooth',
+    behavior: 'smooth'
   });
 });
 
@@ -39,7 +39,7 @@ arrowLeftDevs.addEventListener('click', function() {
     devices.scroll({
       top: 0,
       left: -1366,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   }
 });
@@ -84,7 +84,7 @@ function getPosition(elem) {
 
   return [
     rect.left + (rect.right - rect.left) / 2,
-    rect.top + (rect.bottom - rect.top) / 2,
+    rect.top + (rect.bottom - rect.top) / 2
   ];
 }
 
@@ -127,7 +127,7 @@ function dragRotate(e) {
   }
 
   const old = prevAngleRad;
-  let rad = getMouseAngle(e, document.querySelector('.knob_center'));
+  const rad = getMouseAngle(e, document.querySelector('.knob_center'));
   let delta = rad - old;
 
   prevAngleRad = rad;
@@ -170,10 +170,10 @@ document.querySelectorAll('.modal_close').forEach(b => {
 });
 
 const TEMPS = {
-  'manual': -10,
-  'cold': 0,
-  'warm': 23,
-  'hot': 30,
+  manual: -10,
+  cold: 0,
+  warm: 23,
+  hot: 30
 };
 
 document.querySelectorAll('.modal__filter-item_temp').forEach(l => {
@@ -231,7 +231,7 @@ arrowRightScens.addEventListener('click', function() {
     scenarios.scroll({
       top: 0,
       left: 645,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   }
 });
@@ -246,7 +246,7 @@ arrowLeftScens.addEventListener('click', function() {
     scenarios.scroll({
       top: 0,
       left: -645,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   }
 });
@@ -261,11 +261,11 @@ selectButton.addEventListener('click', function() {
   popup.classList.toggle('filter__select-popup_open');
 });
 
-let widths = '';
+/*let widths = '';
 window.addEventListener('scroll', function() {
   widths += document.querySelectorAll('body')[0].offsetWidth;
   document.querySelector('.stats').innerHTML = widths;
-});
+});*/
 
 selectOptions.forEach(o => {
   o.addEventListener('click', function(e) {

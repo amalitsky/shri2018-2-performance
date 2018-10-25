@@ -1,0 +1,114 @@
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+img {
+    width: auto\9;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    font-size: 100%;
+    vertical-align: middle;
+}
+
+button,
+input {
+    *overflow: visible;
+    line-height: normal;
+}
+
+
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+label,
+input,
+button,
+select,
+textarea {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+input,
+button {
+    font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+input,
+textarea,
+.uneditable-input {
+    width: 206px;
+}
+
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 4px 0 0;
+    margin-top: 1px;
+    *margin-top: 0;
+    line-height: normal;
+}
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+}
+
+
+input,
+textarea,
+.uneditable-input {
+    margin-left: 0;
+}
+

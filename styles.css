@@ -479,6 +479,7 @@ html {
   margin: 0 auto;
   padding: 0;
   width: 1366px;
+  background-color: #ffffff;
 }
 .page__wrapper {
   display: flex;
@@ -571,9 +572,6 @@ html {
   top: 0;
   right: 40px;
 }
-.scenarios_hide {
-  display: none;
-}
 .weather {
   display: flex;
 }
@@ -617,4 +615,7 @@ html {
 }
 .panel__icon_clock {
   background: url("assets/panel__icon_clock.svg") center center/contain no-repeat;
+}
+.main__greeting {
+  font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

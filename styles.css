@@ -283,7 +283,7 @@
   width: 108px;
   height: 27px;
   position: relative;
-  background-image: url("assets/logo.png");
+  background-image: url("assets/logo.webp");
   background-repeat: no-repeat;
   background-position: left top;
   background-size: cover;
@@ -314,7 +314,7 @@
   padding: 0 20px 0 25px;
   display: flex;
   justify-content: space-between;
-  background: url("assets/sh_opt_min.jpg") center center/cover no-repeat;
+  background: url("assets/sh.webp") center center/cover no-repeat;
 }
 .main__greeting {
   margin-top: 6px;

@@ -50,28 +50,7 @@
                         </div>
                         <div class="main__upcoming-wrapper">
                             <div class="main__upcoming">
-                                <div class="panel main__panel panel_device panel_first">
-                                    <div class="panel__icon panel__icon_temp_off"></div>
-                                    <div class="panel__text">
-                                        <div class="panel__title">Philips Cooler</div>
-                                        <div class="panel__sub">Начнет охлаждать в 16:30</div>
-                                    </div>
-                                </div>
-                                <div class="panel main__panel panel_device">
-                                    <div class="panel__icon panel__icon_light_off"></div>
-                                    <div class="panel__text">
-                                        <div class="panel__title">Xiaomi Yeelight LED Smart Bulb</div>
-                                        <div class="panel__sub">Включится в 17:00</div>
-                                    </div>
-                                </div>
-                                <div class="panel main__panel panel_device panel_out_bot">
-                                    <div class="panel__icon panel__icon_light_off"></div>
-                                    <div class="panel__text">
-                                        <div class="panel__title">Xiaomi Yeelight LED Smart Bulb</div>
-                                        <div class="panel__sub">Включится в 17:00</div>
-                                    </div>
-                                </div>
-                                <div class="panel main__panel panel_device panel_out_bot">
+                                <div class="panel main__panel" id="extra-panel">
                                     <a target=_blank href="http://ya.ru"><img id="banner"></a>
                                 </div>
                             </div>
@@ -281,7 +260,6 @@
                 </div>
             </main>
         </div>
-
         <footer class="footer">
             <a href="#" class="link footer__link">Помощь</a>
             <a href="#" class="link footer__link">Обратная связь</a>
@@ -289,7 +267,6 @@
             <a href="#" class="link footer__link">Условия использования</a>
         </footer>
     </div>
-
     <div class="modal modal_temp">
         <div class="modal__content">
             <div class="modal__body">
@@ -380,8 +357,8 @@
     </div>
 
     <template id="panel-template">
-        <div class="panel main__panel panel_device panel_first">
-            <div class="panel__icon panel__icon_temp_off"></div>
+        <div class="panel">
+            <div class="panel__icon"></div>
             <div class="panel__text">
                 <div class="panel__title"></div>
                 <div class="panel__sub"></div>

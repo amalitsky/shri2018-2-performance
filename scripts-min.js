@@ -254,3 +254,71 @@ arrowLeftScens.addEventListener('click', function() {
 setTimeout(() => {
   document.querySelector('#banner').src = 'assets/banner-small.webp';
 }, 99);
+
+const infoBlockTemplateSelector = '#panel-template';
+const infoBlockClassName = 'panel';
+const infoBlockSelector = `.${infoBlockClassName}`;
+
+function addInfoBlock(config, target) {
+  const template = document.querySelector(infoBlockTemplateSelector);
+  const recordClone = document.importNode(template.content, true);
+
+  renderInfoBlock(recordClone, config);
+
+  target.appendChild(recordClone);
+}
+
+function renderInfoBlock(docFragment, {title, iconClass, msg}) {
+  const titleElem = docFragment.querySelector(`${infoBlockSelector}__title`);
+
+  titleElem.textContent = title;
+
+  const icon = docFragment.querySelector(`${infoBlockSelector}__icon`);
+
+  icon.classList.add(`${infoBlockClassName}__icon_${iconClass}`);
+
+  const msgNode = docFragment.querySelector(`${infoBlockSelector}__sub`);
+
+  if (msg) {
+    msgNode.textContent = msg;
+  } else {
+    msgNode.parentNode.removeChild(msgNode);
+  }
+}
+
+/*
+, {
+    icon: '',
+    title: '',
+    msg: ''
+  }
+*/
+
+const panelGroups = {
+  main__upcoming: [{
+    iconClass: 'temp_off',
+    title: 'Philips Cooler',
+    msg: 'Начнет охлаждать в 16:30'
+  }, {
+    iconClass: 'light_off',
+    title: 'Xiaomi Yeelight LED Smart Bulb',
+    msg: 'Включится в 17:00'
+  }, {
+    iconClass: 'light_off',
+    title: 'Xiaomi Yeelight LED Smart Bulb',
+    msg: 'Включится в 17:00'
+  }]
+  // scenarios__page: [],
+  // devices: []
+};
+
+Object.keys(panelGroups).forEach(selector => {
+  const panels = panelGroups[selector];
+  const target = document.querySelector(`.${selector}`);
+
+  panels.forEach(panel => addInfoBlock(panel, target));
+});
+
+// need to have this weirdo as a last child
+const bannerCard = document.querySelector('#extra-panel');
+bannerCard.parentNode.appendChild(bannerCard);

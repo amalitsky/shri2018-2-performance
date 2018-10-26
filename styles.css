@@ -333,10 +333,6 @@
   padding-left: 20px;
   background: rgba(255,255,255,0.6);
 }
-.main__panel {
-  margin-bottom: 14px;
-  position: relative;
-}
 .main__status {
   margin-top: 6px;
   line-height: 16px;
@@ -345,6 +341,14 @@
   width: 220px;
   height: 100%;
   overflow-y: scroll;
+}
+.main__upcoming .panel {
+  height: 120px;
+  margin-bottom: 14px;
+  position: relative;
+}
+.main__upcoming .panel:first-child {
+  margin-top: 20px;
 }
 .main__upcoming-wrapper {
   width: 200px;
@@ -504,12 +508,6 @@
 }
 .panel:active {
   box-shadow: none;
-}
-.panel_device {
-  height: 120px;
-}
-.panel_first {
-  margin-top: 20px;
 }
 .panel__sub {
   font-size: 12px;

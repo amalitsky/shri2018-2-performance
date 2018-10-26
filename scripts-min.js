@@ -1,21 +1,21 @@
-const output = document.querySelector('.modal__value');
-const rangeSLider = document.querySelector('.adjust-bar.adjust-bar_theme_temp');
+const qs = selector => document.querySelector(selector);
+const qsAll = selector => document.querySelectorAll(selector);
+const output = qs('.modal__value');
 
-rangeSLider.oninput = function() {
+qs('.adjust-bar.adjust-bar_theme_temp').oninput = function() {
   output.innerHTML = this.value > 0 ? '+' + this.value : this.value;
 };
 
-const arrowLeftDevs = document.querySelector(
-  '.devices__paginator .paginator__arrow_left');
-const arrowRightDevs = document.querySelector(
-  '.devices__paginator .paginator__arrow_right');
-const devices = document.querySelector('.devices');
+const arrowLeftDevs = qs('.devices__paginator .paginator__arrow_left');
+const arrowRightDevs = qs('.devices__paginator .paginator__arrow_right');
+const devices = qs('.devices');
 let currentPageDevs = 1;
+const disabledPaginatorArrowClass = 'paginator__arrow_disabled';
 
-arrowRightDevs.addEventListener('click', function() {
+arrowRightDevs.addEventListener('click', () => {
   currentPageDevs += 1;
   arrowLeftDevs.classList.toggle(
-    'paginator__arrow_disabled',
+    disabledPaginatorArrowClass,
     currentPageDevs === 1
   );
   devices.scroll({
@@ -25,11 +25,11 @@ arrowRightDevs.addEventListener('click', function() {
   });
 });
 
-arrowLeftDevs.addEventListener('click', function() {
+arrowLeftDevs.addEventListener('click', () => {
   if (currentPageDevs > 1) {
     currentPageDevs -= 1;
     arrowLeftDevs.classList.toggle(
-      'paginator__arrow_disabled',
+      disabledPaginatorArrowClass,
       currentPageDevs === 1
     );
     devices.scroll({
@@ -53,9 +53,6 @@ const rotateToValue = function(rotate) {
     (Math.abs(rotate * 360 * 1.73 + INDICATOR_OFFSET) / 53) + MIN_VALUE);
 };
 
-/**
- * @param {Number} rotate Количество оборотов от нейтриального положения.
- */
 function setRotate(rotate) {
   if (rotate > maxRotate) {
     rotate = maxRotate;
@@ -66,18 +63,15 @@ function setRotate(rotate) {
   curRotate = rotate;
   curValue = rotateToValue(rotate);
 
-  document.querySelector('.modal_knob .modal__value').innerHTML = '+' +
-      curValue;
-  document.querySelector('.knob__value').innerHTML = '+' + curValue;
-  document.querySelector('.knob__indicator').style.strokeDasharray = curRotate *
+  qs('.modal_knob .modal__value').innerHTML = '+' + curValue;
+  qs('.knob__value').innerHTML = '+' + curValue;
+  qs('.knob__indicator').style.strokeDasharray = curRotate *
       360 * 1.73 + INDICATOR_OFFSET + ' 629';
-  document.querySelector('.knob__arrow').style.transform = 'rotate(' +
-      (curRotate * 360) + 'deg)';
+  qs('.knob__arrow').style.transform = 'rotate(' + (curRotate * 360) + 'deg)';
 }
 
 function getPosition(elem) {
   const rect = elem.getBoundingClientRect();
-
   return [
     rect.left + (rect.right - rect.left) / 2,
     rect.top + (rect.bottom - rect.top) / 2
@@ -89,13 +83,16 @@ function getMouseAngle(event, centerElem) {
   let cursor = [event.clientX, event.clientY];
   let rad;
 
-  if (event.targetTouches && event.targetTouches[0]) {
-    cursor = [event.targetTouches[0].clientX, event.targetTouches[0].clientY];
+  const {targetTouches} = event;
+  if (targetTouches && targetTouches[0]) {
+    cursor = [
+      targetTouches[0].clientX,
+      targetTouches[0].clientY
+    ];
   }
 
   rad = Math.atan2(cursor[1] - pos[1], cursor[0] - pos[0]);
   rad += Math.PI / 2;
-
   return rad;
 }
 
@@ -106,14 +103,13 @@ let prevRotate = null;
 function startDragging(e) {
   e.preventDefault();
   e.stopPropagation();
-  const rad = getMouseAngle(e, document.querySelector('.knob_center'));
-
+  const rad = getMouseAngle(e, qs('.knob_center'));
   knobDragged = true;
   prevAngleRad = rad;
   prevRotate = curRotate;
 }
 
-function stopDragging(e) {
+function stopDragging() {
   knobDragged = false;
 }
 
@@ -123,9 +119,8 @@ function dragRotate(e) {
   }
 
   const old = prevAngleRad;
-  const rad = getMouseAngle(e, document.querySelector('.knob_center'));
+  const rad = getMouseAngle(e, qs('.knob_center'));
   let delta = rad - old;
-
   prevAngleRad = rad;
 
   if (delta < 0) {
@@ -143,12 +138,11 @@ function dragRotate(e) {
 }
 
 function setEvtListeners() {
-  const elem = document.querySelector('.knob-container');
-
-  elem.addEventListener('mousedown', startDragging);
+  const knob = qs('.knob-container');
+  knob.addEventListener('mousedown', startDragging);
   document.addEventListener('mouseup', stopDragging);
   document.addEventListener('mousemove', dragRotate);
-  elem.addEventListener('touchstart', startDragging);
+  knob.addEventListener('touchstart', startDragging);
   document.addEventListener('touchend', stopDragging);
   document.addEventListener('touchmove', dragRotate);
 }
@@ -156,14 +150,15 @@ function setEvtListeners() {
 setEvtListeners();
 setRotate(0);
 
-document.querySelectorAll('.modal_close').forEach(b => {
-  b.onclick = function() {
-    document.querySelectorAll('.modal').forEach(m => {
-      m.classList.toggle('modal_open', false);
-      document.querySelector('body').style.overflow = 'auto';
-    });
-  };
-});
+qsAll('.modal_close')
+  .forEach(btn =>
+    btn.onclick = () => {
+      qsAll('.modal').forEach(m => {
+        m.classList.toggle('modal_open', false);
+        qs('body').style.overflow = 'auto';
+      });
+    }
+  );
 
 const TEMPS = {
   manual: -10,
@@ -172,37 +167,37 @@ const TEMPS = {
   hot: 30
 };
 
-document.querySelectorAll('.modal__filter .filter__item-label').forEach(l => {
-  l.onclick = function() {
-    document.querySelector('.adjust-bar_theme_temp').value = TEMPS[this.id];
-    document.querySelector(
-      '.modal_temp .modal__value').innerHTML = TEMPS[this.id] > 0 ?
-      '+' + TEMPS[this.id] :
-      TEMPS[this.id];
-  };
-});
+qsAll('.modal__filter .filter__item-label')
+  .forEach(label =>
+    label.onclick = function() {
+      qs('.adjust-bar_theme_temp').value = TEMPS[this.id];
+      qs('.modal_temp .modal__value').innerHTML =
+        TEMPS[this.id] > 0 ? '+' + TEMPS[this.id] : TEMPS[this.id];
+    }
+  );
 
-const showModal = function(selector) {
-  document.querySelector(selector).classList.toggle('modal_open', true);
-  document.querySelector('body').style.overflow = 'hidden';
+const showModal = selector => {
+  qs(selector).classList.toggle('modal_open', true);
+  qs('body').style.overflow = 'hidden';
 };
 
-const arrowLeftScens = document.querySelector(
-  '.scenarios__paginator .paginator__arrow_left');
-const arrowRightScens = document.querySelector(
-  '.scenarios__paginator .paginator__arrow_right');
-const pageCountScens = document.querySelectorAll('.scenarios__page').length;
-const scenarios = document.querySelector('.scenarios');
+const arrowLeftScens = qs('.scenarios__paginator .paginator__arrow_left');
+const arrowRightScens = qs('.scenarios__paginator .paginator__arrow_right');
+const pageCountScens = qsAll('.scenarios__page').length;
+const scenarios = qs('.scenarios');
 let currentPage = 1;
 
-
-arrowRightScens.addEventListener('click', function() {
+arrowRightScens.addEventListener('click', () => {
   if (currentPage < pageCountScens) {
     currentPage += 1;
-    arrowRightScens.classList.toggle('paginator__arrow_disabled',
-      currentPage === pageCountScens);
-    arrowLeftScens.classList.toggle('paginator__arrow_disabled',
-      currentPage === 1);
+    arrowRightScens.classList.toggle(
+      disabledPaginatorArrowClass,
+      currentPage === pageCountScens
+    );
+    arrowLeftScens.classList.toggle(
+      disabledPaginatorArrowClass,
+      currentPage === 1
+    );
     scenarios.scroll({
       top: 0,
       left: 645,
@@ -211,13 +206,17 @@ arrowRightScens.addEventListener('click', function() {
   }
 });
 
-arrowLeftScens.addEventListener('click', function() {
+arrowLeftScens.addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage -= 1;
-    arrowRightScens.classList.toggle('paginator__arrow_disabled',
-      currentPage === pageCountScens);
-    arrowLeftScens.classList.toggle('paginator__arrow_disabled',
-      currentPage === 1);
+    arrowRightScens.classList.toggle(
+      disabledPaginatorArrowClass,
+      currentPage === pageCountScens
+    );
+    arrowLeftScens.classList.toggle(
+      disabledPaginatorArrowClass,
+      currentPage === 1
+    );
     scenarios.scroll({
       top: 0,
       left: -645,
@@ -226,32 +225,24 @@ arrowLeftScens.addEventListener('click', function() {
   }
 });
 
-setTimeout(() => {
-  document.querySelector('#banner').src = 'assets/banner-small.webp';
-}, 99);
+setTimeout(() => qs('#banner').src = 'assets/banner-small.webp', 99);
 
 const infoBlockTemplateSelector = '#panel-template';
 const infoBlockClassName = 'panel';
 const infoBlockSelector = `.${infoBlockClassName}`;
 
 function addInfoBlock(config, target) {
-  const template = document.querySelector(infoBlockTemplateSelector);
+  const template = qs(infoBlockTemplateSelector);
   const recordClone = document.importNode(template.content, true);
-
   renderInfoBlock(recordClone, config);
-
   target.appendChild(recordClone);
 }
 
 function renderInfoBlock(docFragment, {title, iconClass, msg, types}) {
   const titleElem = docFragment.querySelector(`${infoBlockSelector}__title`);
-
   titleElem.textContent = title;
-
   const icon = docFragment.querySelector(`${infoBlockSelector}__icon`);
-
   icon.classList.add(`${infoBlockClassName}__icon_${iconClass}`);
-
   const msgNode = docFragment.querySelector(`${infoBlockSelector}__sub`);
 
   if (msg) {
@@ -267,14 +258,6 @@ function renderInfoBlock(docFragment, {title, iconClass, msg, types}) {
     );
   }
 }
-
-/*
-, {
-    icon: '',
-    title: '',
-    msg: ''
-  }
-*/
 
 const panelGroups = {
   main__upcoming: [{
@@ -369,29 +352,23 @@ const panelGroups = {
 
 Object.keys(panelGroups).forEach(selector => {
   const panels = panelGroups[selector];
-  const target = document.querySelector(`.${selector}`);
-
+  const target = qs(`.${selector}`);
   panels.forEach(panel => addInfoBlock(panel, target));
 });
 
 // need to have this weirdo as a last child
-const bannerCard = document.querySelector('#extra-panel');
+const bannerCard = qs('#extra-panel');
 bannerCard.parentNode.appendChild(bannerCard);
 
 const panelCountScens =
-  document.querySelectorAll('.scenarios__page .panel').length;
-const pagiantorScens = document.querySelector('.scenarios__paginator');
+  qsAll('.scenarios__page .panel').length;
+const pagiantorScens = qs('.scenarios__paginator');
 pagiantorScens.classList.toggle('paginator_hide', panelCountScens <= 9);
 
-const panelCountDevs = document.querySelectorAll('.devices .panel').length;
-const pagiantorDevs = document.querySelector('.devices__paginator');
+const panelCountDevs = qsAll('.devices .panel').length;
+const pagiantorDevs = qs('.devices__paginator');
 pagiantorDevs.classList.toggle('paginator_hide', panelCountDevs < 7);
 
-document.querySelectorAll('.panel_temp')
-  .forEach(p => p.onclick = () => showModal('.modal_temp'));
-
-document.querySelectorAll('.panel_lamp')
-  .forEach(p => p.onclick = () => showModal('.modal_light'));
-
-document.querySelectorAll('.panel_floor')
-  .forEach(p => p.onclick = () => showModal('.modal_knob'));
+qsAll('.panel_temp').forEach(p => p.onclick = () => showModal('.modal_temp'));
+qsAll('.panel_lamp').forEach(p => p.onclick = () => showModal('.modal_light'));
+qsAll('.panel_floor').forEach(p => p.onclick = () => showModal('.modal_knob'));

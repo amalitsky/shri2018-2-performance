@@ -304,16 +304,6 @@
   position: relative;
   background: url("assets/logo.webp") left top/cover no-repeat;
 }
-.logo__ya {
-  display: block;
-  position: absolute;
-  z-index: 10;
-  outline: 0;
-  height: 100%;
-  width: 69px;
-  left: 0;
-  top: 0;
-}
 .logo__ya-sub {
   display: block;
   position: absolute;
@@ -488,10 +478,7 @@
 .paginator__arrow:hover {
   opacity: 0.5;
 }
-.paginator__arrow:active {
-  opacity: 0.3;
-}
-.paginator__arrow_disabled {
+.paginator__arrow:active, .paginator__arrow_disabled {
   opacity: 0.3;
 }
 .paginator__arrow svg {

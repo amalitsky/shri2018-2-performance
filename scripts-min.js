@@ -9,7 +9,7 @@ const arrowLeftDevs = document.querySelector(
   '.devices__paginator .paginator__arrow_left');
 const arrowRightDevs = document.querySelector(
   '.devices__paginator .paginator__arrow_right');
-const panelCountDevs = document.querySelectorAll('.devices__panel').length;
+const panelCountDevs = document.querySelectorAll('.devices .panel').length;
 const devices = document.querySelector('.devices');
 const pagiantorDevs = document.querySelector('.devices__paginator');
 let currentPageDevs = 1;
@@ -213,7 +213,7 @@ const arrowLeftScens = document.querySelector(
   '.scenarios__paginator .paginator__arrow_left');
 const arrowRightScens = document.querySelector(
   '.scenarios__paginator .paginator__arrow_right');
-const panelCountScens = document.querySelectorAll('.scenarios__panel').length;
+const panelCountScens = document.querySelectorAll('.scenarios__page .panel').length;
 const pageCountScens = document.querySelectorAll('.scenarios__page').length;
 const scenarios = document.querySelector('.scenarios');
 const pagiantorScens = document.querySelector('.scenarios__paginator');
@@ -308,7 +308,36 @@ const panelGroups = {
     title: 'Xiaomi Yeelight LED Smart Bulb',
     msg: 'Включится в 17:00'
   }]
-  // scenarios__page: [],
+  /*scenarios__page: [{
+    icon: 'light_on',
+    title: 'Выключить весь свет в доме и во дворе'
+  }, {
+    icon: 'clock',
+    title: 'Я ухожу'
+  }, {
+    icon: 'light_on',
+    title: 'Включить свет в корридоре'
+  }, {
+    icon: 'temp_on',
+    title: 'Набрать горячую ванну',
+    msg: 'Начнётся в 18:00'
+  }, {
+    icon: 'light_on',
+    title: 'Выключить весь свет в доме и во дворе'
+  }, {
+    icon: 'clock',
+    title: 'Я ухожу'
+  }, {
+    icon: 'light_on',
+    title: 'Включить свет в корридоре'
+  }, {
+    icon: 'temp_on',
+    title: 'Набрать горячую ванну',
+    msg: 'Начнётся в 18:00'
+  }, {
+    icon: 'light_on',
+    title: 'Выключить весь свет в доме и во дворе'
+  }]*/
   // devices: []
 };
 

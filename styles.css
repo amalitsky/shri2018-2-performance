@@ -163,8 +163,9 @@
   overflow-x: hidden;
   padding: 20px 0 6px 40px;
 }
-.devices__panel {
+.devices .panel {
   margin-right: 15px;
+  height: 120px;
 }
 .devices::after {
   content: '';

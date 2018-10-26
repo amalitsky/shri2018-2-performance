@@ -40,7 +40,7 @@
   border-radius: 30px;
   box-shadow: 0 0 0 4px #fff;
 }
-/*.adjust-bar::-moz-range-thumb {
+.adjust-bar::-moz-range-thumb {
   box-sizing: border-box;
   cursor: pointer;
   width: 60px;
@@ -52,7 +52,7 @@
 }
 .adjust-bar::-moz-range-track {
   background: transparent;
-}*/
+}
 .adjust-bar__container_theme_temp {
   position: relative;
 }
@@ -302,10 +302,7 @@
   width: 108px;
   height: 27px;
   position: relative;
-  background-image: url("assets/logo.webp");
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-size: cover;
+  background: url("assets/logo.webp") left top/cover no-repeat;
 }
 .logo__ya {
   display: block;
@@ -454,12 +451,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-}
 .page {
   height: 100%;
   font: 14px Arial, sans-serif;
@@ -587,24 +578,33 @@ body {
 .panel__icon {
   width: 24px;
   height: 24px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 .panel__icon_temp_off {
-  background: url("assets/panel__icon_temp_off.svg") center center/contain no-repeat;
+  background-image: url("assets/panel__icon_temp_off.svg");
 }
 .panel__icon_temp_on {
-  background: url("assets/panel__icon_temp_on.svg") center center/contain no-repeat;
+  background-image: url("assets/panel__icon_temp_on.svg");
 }
 .panel__icon_light_off {
-  background: url("assets/panel__icon_light_off.svg") center center/contain no-repeat;
+  background-image: url("assets/panel__icon_light_off.svg");
 }
 .panel__icon_light_on {
-  background: url("assets/panel__icon_light_on.svg") center center/contain no-repeat;
+  background-image: url("assets/panel__icon_light_on.svg");
 }
 .panel__icon_clock {
-  background: url("assets/panel__icon_clock.svg") center center/contain no-repeat;
+  background-image: url("assets/panel__icon_clock.svg");
 }
 
 /* remains of bootstrap */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
 html {
   height: 100%;
   font-size: 100%;

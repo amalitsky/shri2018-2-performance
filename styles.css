@@ -319,7 +319,7 @@
 .main__greeting {
   margin-top: 6px;
   font-size: 27px;
-  font-weight: 700;
+  font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .main__info {
   width: 61.585%;
@@ -553,7 +553,7 @@ body {
   font-size: 36px;
   font-weight: 700;
   line-height: 1.16;
-  font-family: "PT Sans Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "PT Sans Narrow Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .weather__item_outside {
   padding-right: 31px;
@@ -579,9 +579,6 @@ body {
 }
 .panel__icon_clock {
   background: url("assets/panel__icon_clock.svg") center center/contain no-repeat;
-}
-.main__greeting {
-  font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* remains of bootstrap */
@@ -631,10 +628,6 @@ label {
   margin-bottom: 5px;
 }
 
-/*input {
-  width: 206px;
-  margin-left: 0;
-}*/
 
 input[type="radio"] {
   margin: 1px 0 0;

@@ -172,7 +172,7 @@ const TEMPS = {
   hot: 30
 };
 
-document.querySelectorAll('.modal__filter-item_temp').forEach(l => {
+document.querySelectorAll('.modal__filter .filter__item-label').forEach(l => {
   l.onclick = function() {
     document.querySelector('.adjust-bar_theme_temp').value = TEMPS[this.id];
     document.querySelector(
@@ -186,24 +186,6 @@ const showModal = function(selector) {
   document.querySelector(selector).classList.toggle('modal_open', true);
   document.querySelector('body').style.overflow = 'hidden';
 };
-
-document.querySelectorAll('.panel_temp').forEach(p => {
-  p.onclick = function() {
-    showModal('.modal_temp');
-  };
-});
-
-document.querySelectorAll('.panel_lamp').forEach(p => {
-  p.onclick = function() {
-    showModal('.modal_light');
-  };
-});
-
-document.querySelectorAll('.panel_floor').forEach(p => {
-  p.onclick = function() {
-    showModal('.modal_knob');
-  };
-});
 
 const arrowLeftScens = document.querySelector(
   '.scenarios__paginator .paginator__arrow_left');
@@ -404,3 +386,12 @@ pagiantorScens.classList.toggle('paginator_hide', panelCountScens <= 9);
 const panelCountDevs = document.querySelectorAll('.devices .panel').length;
 const pagiantorDevs = document.querySelector('.devices__paginator');
 pagiantorDevs.classList.toggle('paginator_hide', panelCountDevs < 7);
+
+document.querySelectorAll('.panel_temp')
+  .forEach(p => p.onclick = () => showModal('.modal_temp'));
+
+document.querySelectorAll('.panel_lamp')
+  .forEach(p => p.onclick = () => showModal('.modal_light'));
+
+document.querySelectorAll('.panel_floor')
+  .forEach(p => p.onclick = () => showModal('.modal_knob'));

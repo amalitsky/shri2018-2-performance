@@ -9,12 +9,8 @@ const arrowLeftDevs = document.querySelector(
   '.devices__paginator .paginator__arrow_left');
 const arrowRightDevs = document.querySelector(
   '.devices__paginator .paginator__arrow_right');
-const panelCountDevs = document.querySelectorAll('.devices .panel').length;
 const devices = document.querySelector('.devices');
-const pagiantorDevs = document.querySelector('.devices__paginator');
 let currentPageDevs = 1;
-
-pagiantorDevs.classList.toggle('paginator_hide', panelCountDevs < 7);
 
 arrowRightDevs.addEventListener('click', function() {
   currentPageDevs += 1;
@@ -213,13 +209,10 @@ const arrowLeftScens = document.querySelector(
   '.scenarios__paginator .paginator__arrow_left');
 const arrowRightScens = document.querySelector(
   '.scenarios__paginator .paginator__arrow_right');
-const panelCountScens = document.querySelectorAll('.scenarios__page .panel').length;
 const pageCountScens = document.querySelectorAll('.scenarios__page').length;
 const scenarios = document.querySelector('.scenarios');
-const pagiantorScens = document.querySelector('.scenarios__paginator');
 let currentPage = 1;
 
-pagiantorScens.classList.toggle('paginator_hide', panelCountScens <= 9);
 
 arrowRightScens.addEventListener('click', function() {
   if (currentPage < pageCountScens) {
@@ -268,7 +261,7 @@ function addInfoBlock(config, target) {
   target.appendChild(recordClone);
 }
 
-function renderInfoBlock(docFragment, {title, iconClass, msg}) {
+function renderInfoBlock(docFragment, {title, iconClass, msg, types}) {
   const titleElem = docFragment.querySelector(`${infoBlockSelector}__title`);
 
   titleElem.textContent = title;
@@ -283,6 +276,13 @@ function renderInfoBlock(docFragment, {title, iconClass, msg}) {
     msgNode.textContent = msg;
   } else {
     msgNode.parentNode.removeChild(msgNode);
+  }
+
+  if (types) {
+    const panelNode = docFragment.querySelector(infoBlockSelector);
+    types.forEach(type =>
+      panelNode.classList.add(`${infoBlockClassName}_${type}`)
+    );
   }
 }
 
@@ -307,38 +307,82 @@ const panelGroups = {
     iconClass: 'light_off',
     title: 'Xiaomi Yeelight LED Smart Bulb',
     msg: 'Включится в 17:00'
+  }],
+  scenarios__page_1: [{
+    iconClass: 'light_on',
+    title: 'Выключить весь свет в доме и во дворе'
+  }, {
+    iconClass: 'clock',
+    title: 'Я ухожу'
+  }, {
+    iconClass: 'light_on',
+    title: 'Включить свет в корридоре'
+  }, {
+    iconClass: 'temp_on',
+    title: 'Набрать горячую ванну',
+    msg: 'Начнётся в 18:00'
+  }, {
+    iconClass: 'light_on',
+    title: 'Выключить весь свет в доме и во дворе'
+  }, {
+    iconClass: 'clock',
+    title: 'Я ухожу'
+  }, {
+    iconClass: 'light_on',
+    title: 'Включить свет в корридоре'
+  }, {
+    iconClass: 'temp_on',
+    title: 'Набрать горячую ванну',
+    msg: 'Начнётся в 18:00'
+  }, {
+    iconClass: 'light_on',
+    title: 'Выключить весь свет в доме и во дворе'
+  }],
+  scenarios__page_2: [{
+    iconClass: 'light_on',
+    title: 'Включить свет в корридоре'
+  }],
+  devices: [{
+    types: ['room', 'floor'],
+    iconClass: 'light_on',
+    title: 'Xiaomi Warm Floor',
+    msg: 'Включено'
+  }, {
+    types: ['lamp'],
+    iconClass: 'light_on',
+    title: 'Xiaomi Yeelight LED Smart Bulb',
+    msg: 'Включено'
+  }, {
+    types: ['cam'],
+    iconClass: 'light_off',
+    title: 'D-Link Omna 180 Cam',
+    msg: 'Включится в 17:00'
+  }, {
+    types: ['room', 'temp'],
+    iconClass: 'temp_off',
+    title: 'Elgato Eve Degree Connected',
+    msg: 'Включится в 17:00'
+  }, {
+    types: ['lamp'],
+    iconClass: 'light_off',
+    title: 'LIFX Mini Day & Dusk A60 E27',
+    msg: 'Включится в 17:00'
+  }, {
+    types: ['room'],
+    iconClass: 'light_on',
+    title: 'Xiaomi Mi Air Purifier 2S',
+    msg: 'Включено'
+  }, {
+    types: ['lamp'],
+    iconClass: 'light_off',
+    title: 'Philips Zhirui',
+    msg: 'Выключено'
+  }, {
+    types: ['kitchen'],
+    iconClass: 'light_on',
+    title: 'Philips Purifier',
+    msg: 'Включено'
   }]
-  /*scenarios__page: [{
-    icon: 'light_on',
-    title: 'Выключить весь свет в доме и во дворе'
-  }, {
-    icon: 'clock',
-    title: 'Я ухожу'
-  }, {
-    icon: 'light_on',
-    title: 'Включить свет в корридоре'
-  }, {
-    icon: 'temp_on',
-    title: 'Набрать горячую ванну',
-    msg: 'Начнётся в 18:00'
-  }, {
-    icon: 'light_on',
-    title: 'Выключить весь свет в доме и во дворе'
-  }, {
-    icon: 'clock',
-    title: 'Я ухожу'
-  }, {
-    icon: 'light_on',
-    title: 'Включить свет в корридоре'
-  }, {
-    icon: 'temp_on',
-    title: 'Набрать горячую ванну',
-    msg: 'Начнётся в 18:00'
-  }, {
-    icon: 'light_on',
-    title: 'Выключить весь свет в доме и во дворе'
-  }]*/
-  // devices: []
 };
 
 Object.keys(panelGroups).forEach(selector => {
@@ -351,3 +395,12 @@ Object.keys(panelGroups).forEach(selector => {
 // need to have this weirdo as a last child
 const bannerCard = document.querySelector('#extra-panel');
 bannerCard.parentNode.appendChild(bannerCard);
+
+const panelCountScens =
+  document.querySelectorAll('.scenarios__page .panel').length;
+const pagiantorScens = document.querySelector('.scenarios__paginator');
+pagiantorScens.classList.toggle('paginator_hide', panelCountScens <= 9);
+
+const panelCountDevs = document.querySelectorAll('.devices .panel').length;
+const pagiantorDevs = document.querySelector('.devices__paginator');
+pagiantorDevs.classList.toggle('paginator_hide', panelCountDevs < 7);

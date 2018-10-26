@@ -2,14 +2,16 @@
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: local('PT Sans Bold'),
   url('fonts/pt-sans-v9-cyrillic-700.woff2') format('woff2');
-url('fonts/pt-sans-v9-cyrillic-700.woff') format('woff');
+  url('fonts/pt-sans-v9-cyrillic-700.woff') format('woff');
 }
 
 @font-face {
   font-family: 'PT Sans Narrow Bold';
   font-weight: 700;
+  font-display: swap;
   src: local('PT Sans Narrow Bold'),
   url('fonts/pt-sans-narrow-v9-latin-700.woff2') format('woff'),
   url('fonts/pt-sans-narrow-v9-latin-700.woff') format('woff');
@@ -38,7 +40,7 @@ url('fonts/pt-sans-v9-cyrillic-700.woff') format('woff');
   border-radius: 30px;
   box-shadow: 0 0 0 4px #fff;
 }
-.adjust-bar::-moz-range-thumb {
+/*.adjust-bar::-moz-range-thumb {
   box-sizing: border-box;
   cursor: pointer;
   width: 60px;
@@ -50,7 +52,7 @@ url('fonts/pt-sans-v9-cyrillic-700.woff') format('woff');
 }
 .adjust-bar::-moz-range-track {
   background: transparent;
-}
+}*/
 .adjust-bar__container_theme_temp {
   position: relative;
 }
@@ -501,6 +503,10 @@ body {
 .paginator__arrow_disabled {
   opacity: 0.3;
 }
+.paginator__arrow svg {
+  width: 100%;
+  height: 16px;
+}
 .panel {
   padding: 14px;
   min-height: 100px;
@@ -576,7 +582,7 @@ body {
   padding-right: 31px;
 }
 .weather__item_cloud-drizzle {
-  background: url("assets/cloud-drizzle.png") 100% 70%/26px no-repeat;
+  background: url("assets/cloud-drizzle.webp") 100% 70%/26px no-repeat;
 }
 .panel__icon {
   width: 24px;

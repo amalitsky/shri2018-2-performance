@@ -250,3 +250,5 @@ arrowLeftScens.addEventListener('click', function() {
     });
   }
 });
+
+document.querySelector('#banner').src = 'assets/banner-small.jpg';

@@ -634,3 +634,20 @@ input[type="radio"] {
   line-height: normal;
   width: auto;
 }
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'),
+  url('fonts/pt-sans-v9-cyrillic-700.woff2') format('woff2');
+  url('fonts/pt-sans-v9-cyrillic-700.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'PT Sans Narrow Bold';
+  font-weight: 700;
+  src: local('PT Sans Narrow Bold'),
+  url('fonts/pt-sans-narrow-v9-latin-700.woff2') format('woff'),
+  url('fonts/pt-sans-narrow-v9-latin-700.woff') format('woff');
+}

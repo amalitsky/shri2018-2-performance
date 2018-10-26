@@ -581,13 +581,7 @@ body {
   background: url("assets/panel__icon_clock.svg") center center/contain no-repeat;
 }
 .main__greeting {
-  background-image: url("assets/hi_gena.png");
-  background-position-x: -2px;
-  background-position-y: 3px;
-  background-size: 220px auto;
-  background-repeat: no-repeat;
-  width: 340px;
-  height: 30px;
+  font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* remains of bootstrap */
@@ -612,6 +606,7 @@ input {
   font-size: 100%;
   vertical-align: middle;
   line-height: normal;
+  font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 label,

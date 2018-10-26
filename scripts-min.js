@@ -251,4 +251,6 @@ arrowLeftScens.addEventListener('click', function() {
   }
 });
 
-document.querySelector('#banner').src = 'assets/banner-small.jpg';
+setTimeout(() => {
+  document.querySelector('#banner').src = 'assets/banner-small.webp';
+}, 99);

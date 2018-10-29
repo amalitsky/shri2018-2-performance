@@ -17,14 +17,10 @@ gulp.task('minify-html', () => {
 
 gulp.task('minify-css', () => {
   return gulp.src(cssFiles)
-    .pipe(cleanCSS({
-      level: {
-        2: false
-      }
-    }))
+    .pipe(cleanCSS())
     .pipe(gulp.dest(publicFolder));
 });
-gs
+
 gulp.task('minify-js', () => {
   return gulp.src(jsFiles)
     .pipe(uglify())

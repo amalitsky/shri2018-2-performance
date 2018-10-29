@@ -189,6 +189,9 @@
   margin-right: 11px;
   cursor: pointer;
 }
+.modal .filter__item-label {
+  margin-right: 15px;
+}
 .filter__item-label:hover {
   background: #ffd93e;
 }

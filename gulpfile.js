@@ -17,10 +17,14 @@ gulp.task('minify-html', () => {
 
 gulp.task('minify-css', () => {
   return gulp.src(cssFiles)
-    .pipe(cleanCSS())
+    .pipe(cleanCSS({
+      level: {
+        2: false
+      }
+    }))
     .pipe(gulp.dest(publicFolder));
 });
-
+gs
 gulp.task('minify-js', () => {
   return gulp.src(jsFiles)
     .pipe(uglify())
@@ -62,5 +66,5 @@ gulp.task('default', ['serve']);
 
 /** Push build to gh-pages */
 gulp.task('deploy', function() {
-  return gulp.src(publicFolder).pipe(deploy());
+  return gulp.src(`${publicFolder}/**/*.*`).pipe(deploy());
 });

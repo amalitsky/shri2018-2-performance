@@ -2,3 +2,6 @@ node_modules
 .DS_Store
 .idea
 .publish
+public/*.html
+public/*.css
+public/*.js
